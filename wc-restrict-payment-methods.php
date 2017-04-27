@@ -35,6 +35,6 @@ class WC_RestrictPaymentMethods {
 
 }
 
-add_action( 'plugins_loaded', array( 'WC_ProductPayDisc', 'get_instance' ) );
+add_action( 'plugins_loaded', array( 'WC_RestrictPaymentMethods', 'get_instance' ) );
 	
 endif;
