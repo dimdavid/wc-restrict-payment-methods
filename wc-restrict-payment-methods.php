@@ -4,7 +4,7 @@ Plugin Name: WC Restrict Payment Methods
 Plugin URI: https://github.com/dimdavid/wc-restrict-payment-methods
 Description: Restrict Woocommerce payment methods by products. If the product is in the cart, the method will not be shown.
 Version: 1.0
-Author: Davidson Marques
+Author: dimdavid
 Author URI: http://dimdavid.wordpress.com/
 License: GPL2
 */
