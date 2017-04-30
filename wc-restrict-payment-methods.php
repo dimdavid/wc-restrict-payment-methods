@@ -17,7 +17,7 @@ if ( ! class_exists( 'WC_RestrictPaymentMethods' ) ) :
 
 class WC_RestrictPaymentMethods {
 
-	const VERSION = '1.0.0';
+	const VERSION = '1.0.1';
 	protected static $instance = null;
 
 	private function __construct() {

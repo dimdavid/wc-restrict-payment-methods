@@ -58,16 +58,32 @@ Mantenha pressionada a tecla Ctrl/Command enquanto seleciona as opções.
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.0 =
 
 * This is the first functional version.
 
 * Esta é a primeira versão funcional.
+
+= 1.0.1 = 
+
+* Add sanitize post value when save product;
+* Checking installed version of Woocommerce.
+
+* Adicionada limpesa do valor postado ao salvar o produto;
+* Verificação de versão instalada do Woocommerce.
 
 == Upgrade Notice ==
 
-= 1.0 2017/04/29 =
+= 1.0.0 2017/04/29 =
 
 * This is the first functional version.
 
 * Esta é a primeira versão funcional.
+
+= 1.0.1 2017/04/30 =
+
+* Add sanitize post value when save product;
+* Checking installed version of Woocommerce.
+
+* Adicionada limpesa do valor postado ao salvar o produto;
+* Verificação de versão instalada do Woocommerce.
