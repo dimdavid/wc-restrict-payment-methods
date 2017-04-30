@@ -21,10 +21,18 @@ class WC_RestrictPaymentMethods {
 	protected static $instance = null;
 
 	private function __construct() {
-		if(is_admin()){
-			$this->admin_init();
-		}
-		$this->init();
+		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.1', '>=' ) ) {
+			if ( is_admin() ) {
+				$this->admin_init();
+			}
+			$this->init();
+		} else {
+			add_action( 'admin_notices', array( $this, 'woocommerce_is_missing_notice' ) );
+		}	
+	}
+	
+	public function woocommerce_is_missing_notice() {
+		echo '<div class="error"><p><strong>WC Restrict Payment Methods</strong> nly works with versions 2.5 or higher of <a href="http://wordpress.org/plugins/woocommerce/">WooCommerce</a></p></div>';
 	}
 	
 	public function admin_init(){
@@ -106,8 +114,10 @@ function addRestrictMethod(){
 		$rm = array();
 		if($post->post_type == 'product'){
 			if(isset($_POST['restrict_methods'])){
-				foreach($_POST['restrict_methods'] as $prm){
-					$rm[] = $prm;
+				/* "wc_clean" function clean variables using "sanitize_text_field". Arrays are cleaned recursively. */
+				$cleaned_post = wc_clean($_POST['restrict_methods']);
+				foreach($cleaned_post as $prm){
+					$rm[] = wc_clean(stripslashes($prm));
 				}
 				update_post_meta($post_id, 'restrict_methods', $rm);
 			}
