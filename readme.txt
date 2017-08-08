@@ -3,8 +3,8 @@ Contributors: dimdavid
 Donate link: https://dimdavid.wordpress.com/
 Tags: woocommerce, payment, methods, gateway, restrict 
 Requires at least: 3.9.13
-Tested up to: 4.7.4
-Stable tag: trunk
+Tested up to: 4.8
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -72,6 +72,14 @@ Mantenha pressionada a tecla Ctrl/Command enquanto seleciona as opções.
 * Adicionada limpesa do valor postado ao salvar o produto;
 * Verificação de versão instalada do Woocommerce.
 
+= 1.1 =
+
+* Checking the product's config to prevent wrning message on products or checkout pages;
+* Add save button near the options set.
+
+* Verificação existência ou não de configuração no produto, previnindo menságens de alerta na tela do produto e na finalização da compra;
+* Adicionado botão para atualizar alterações próximo das opções.
+
 == Upgrade Notice ==
 
 = 1.0.0 2017/04/29 =
@@ -87,3 +95,11 @@ Mantenha pressionada a tecla Ctrl/Command enquanto seleciona as opções.
 
 * Adicionada limpesa do valor postado ao salvar o produto;
 * Verificação de versão instalada do Woocommerce.
+
+= 1.1 2017/08/08 =
+
+* Checking the product's config to prevent wrning message on products or checkout pages;
+* Add save button near the options set.
+
+* Verificação existência ou não de configuração no produto, previnindo menságens de alerta na tela do produto e na finalização da compra;
+* Adicionado botão para atualizar alterações próximo das opções.

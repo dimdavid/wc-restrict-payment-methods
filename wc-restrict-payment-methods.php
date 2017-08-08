@@ -3,7 +3,7 @@
 Plugin Name: WC Restrict Payment Methods
 Plugin URI: https://github.com/dimdavid/wc-restrict-payment-methods
 Description: Restrict Woocommerce payment methods by products. If the product is in the cart, the method will not be shown.
-Version: 1.0
+Version: 1.1
 Author: dimdavid
 Author URI: http://dimdavid.wordpress.com/
 License: GPL2
@@ -17,7 +17,8 @@ if ( ! class_exists( 'WC_RestrictPaymentMethods' ) ) :
 
 class WC_RestrictPaymentMethods {
 
-	const VERSION = '1.0.1';
+	const VERSION = '1.1';
+	public $version = '1.1';
 	protected static $instance = null;
 
 	private function __construct() {
@@ -78,11 +79,19 @@ function addRestrictMethod(){
 		
 	}
 }
+function unselectAll(){
+	var elements = document.getElementById("restrict_methods").options;
+    for(var i = 0; i < elements.length; i++){
+      elements[i].selected = false;
+    }
+ }
 </script>
 <div id="restrict_payment_methods" class="panel wc-metaboxes-wrapper">
 	<div class="toolbar toolbar-top">
-		<?php echo $this->available_methods_options(); ?>
+		<?php echo $this->available_methods_options(); ?><br/>
+	<?php submit_button(); ?>
 	</div>
+	
 </div>
 <?php
 
@@ -90,7 +99,7 @@ function addRestrictMethod(){
 
 	public function available_methods_options(){
 		$rms = $this->load_restrict_methods();
-		$h = '<select multiple id="restrict_methods" name="restrict_methods[]" class="attribute_taxonomy">';
+		$h = '<select multiple id="restrict_methods" name="restrict_methods[]" class="attribute_taxonomy"><option value="">Do not restrict</option>';
 		$payment_gateways = WC()->payment_gateways->payment_gateways();
 		foreach($payment_gateways as $pg){
 			if(in_array($pg->id, $rms)){
@@ -106,6 +115,9 @@ function addRestrictMethod(){
 	
 	public function load_restrict_methods(){
 		$rms = get_post_meta(get_the_ID(), 'restrict_methods', true);
+		if(empty($rms)){
+			$rms = array("");
+		}
 		return $rms;
 	}
 	
